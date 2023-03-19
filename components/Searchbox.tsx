@@ -6,7 +6,7 @@ export default function Searchbox() {
     const [title, setTitle] = useState('')
     const [showAdvanced, setShowAdvanced] = useState(false)
   
-    const handleSubmit = e => {
+    const handleSubmit = (e: any) => {
       e.preventDefault()
       // Perform the search using the query, author, and title values
     }
