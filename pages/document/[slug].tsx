@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Document = () => {
     const router = useRouter()
+    const isReady = router.isReady;
     const { slug } = router.query;
     const [data, setData] = useState<any>();
     const [count, setCount] = useState(null);
@@ -11,6 +12,7 @@ const Document = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        if (isReady) {
         const fetchData = async () => {
             try {
                 const { count }: { count: any } = await supabase.from('document').select('*', { count: 'exact', head: true });
@@ -31,7 +33,9 @@ const Document = () => {
             }
         };
         fetchData();
-    }, [slug]);
+
+        }
+    }, [slug, isReady]);
 
     if (loading) return <div>Chargement...</div>;
     if (error) return <div>Oups, nous avons un problème: {error.message}</div>;
