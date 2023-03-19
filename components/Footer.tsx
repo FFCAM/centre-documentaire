@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="footer items-center p-4 bg-neutral text-neutral-content">
             <div className="items-center grid-flow-col">
                 <Image
-                    src="/images/picto-ffcam.png"
+                    src={"/images/picto-ffcam.png"}
                     alt="FFCAM"
                     width={50}
                     height={71}

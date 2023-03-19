@@ -40,7 +40,7 @@ export default function Results() {
         {data && data.map((result, index) => (
           <div key={index} className="w-full sm:w-1 md:w-1/2 lg:w-1/3 p-3">
             <div key={index} className="card card-side bg-base-100 shadow-xl">
-              <figure><Image src="/images/couv.png" alt="Couverture" width={600} height={1200} /></figure>
+              <figure><Image src={"/images/couv.png"} alt="Couverture" width={600} height={1200} /></figure>
               <div className="card-body p-1">
                 <h2 className="card-title">{result.title}</h2>
                 {/* <p>{result.subtitle}</p> */}
