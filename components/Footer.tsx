@@ -14,6 +14,7 @@ export default function Footer() {
             </div>
             <div className="grid grid-flow-col gap-4">
                 <Link className="link link-hover" href={"a-propos"}>A propos de ce projet</Link>
+                <Link className="link link-hover" href="https://github.com/FFCAM/centre-documentaire">Code source</Link>
                 <Link className="link link-hover" href={"contact"}>Contact</Link>
             </div>
             <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

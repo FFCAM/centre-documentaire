@@ -28,7 +28,11 @@ L'application est développée en utilisant Next.js et le backend est alimenté 
 
 ## Fonctionnalités
 
-- Recherche dans le catalogue du Centre National de Documentation de la FFCAM
+- Recherche dans le catalogue du Centre National de Documentation de la FFCAM parmi plus de 15 000 ouvrages
+  - livres
+  - cartes
+  - films
+  - magazines
 - Consultation des résultats de recherche
 - Affichage des détails d'un document spécifique
 - Interface utilisateur intuitive et conviviale
