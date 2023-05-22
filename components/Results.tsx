@@ -36,8 +36,8 @@ export default function Results({query}: ResultsProps): any {
     fetchData();
   }, [query]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred: {error.message}</div>;
+  if (loading) return <div>Chargement en cours ...</div>;
+  if (error) return <div>Une erreur s&apos;est produite: {error.message}</div>;
   return (
     <div>
       <div className="flex flex-wrap justify-center">
