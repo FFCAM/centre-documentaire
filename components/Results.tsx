@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabaseclient';
 import Link from 'next/link';
 import Image from 'next/image';
+type ResultsProps = {
+  query: string;
+}
 
-export default function Results({query}) {
+export default function Results({query}: ResultsProps): any {
   const [data, setData] = useState<any[]>([]);
   const [count, setCount] = useState(null);
   const [error, setError] = useState<any>(null);

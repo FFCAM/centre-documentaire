@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-export default function Searchbox({onQuery}) {
+type SearchboxProps = {
+  onQuery: (query: string) => void;
+}
+
+export default function Searchbox({onQuery}: SearchboxProps) {
   const [author, setAuthor] = useState('')
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
