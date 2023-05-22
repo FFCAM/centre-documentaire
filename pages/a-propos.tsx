@@ -18,7 +18,7 @@ export default function Apropos() {
       </Head>
         
       <main className="py-8 px-4 container mx-auto">
-          Ce projet a été développé par des bénévoles afin comme objectif commun de mettre en avant l&apos;incroyable Centre de Documentation de la FFCAM.
+          Ce projet a été développé par des bénévoles avec comme objectif commun de mettre en avant l&apos;incroyable Centre de Documentation de la FFCAM.
       </main>
     </>
   )
