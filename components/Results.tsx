@@ -16,7 +16,6 @@ export default function Results({query}: ResultsProps): any {
     const fetchData = async () => {
       try {
         const { count }: { count: any } = await supabase.from('document').select('*', { count: 'exact', head: true });
-        console.log(query);
         const { data, error }: { data: any, error: any } = query ?
           (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').ilike('title', `%${query}%`)) :
           (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').limit(10));
@@ -24,7 +23,6 @@ export default function Results({query}: ResultsProps): any {
           setError(error);
           setLoading(false);
         } else {
-          console.log(data)
           setData(data);
           setCount(count);
           setLoading(false);
@@ -43,7 +41,7 @@ export default function Results({query}: ResultsProps): any {
   return (
     <div>
       <div className="flex flex-wrap justify-center">
-        {data && data.map((result, index) => (
+        {data && data.length ? data.map((result, index) => (
           <div key={index} className="w-full sm:w-1 md:w-1/2 lg:w-1/3 p-3">
             <div key={index} className="card card-side bg-base-100 shadow-xl">
               <figure><Image src={"/images/couv.png"} alt="Couverture" width={600} height={1200} /></figure>
@@ -68,9 +66,9 @@ export default function Results({query}: ResultsProps): any {
               </div>
             </div>
           </div>
-        ))}
+        )) : "Pas de résultat"}
       </div>
-      <div className="flex flex-wrap justify-center">{count} results</div>
+      <div className="flex flex-wrap justify-center">La base de donnée contient actuellement {count} ouvrages.</div>
     </div>
   )
 }
