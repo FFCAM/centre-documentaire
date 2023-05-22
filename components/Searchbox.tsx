@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 export default function Searchbox({onQuery}) {
-  const [query, setQuery] = useState('')
   const [author, setAuthor] = useState('')
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
@@ -10,7 +9,6 @@ export default function Searchbox({onQuery}) {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(e.target.title.value);
     onQuery(e.target.title.value);
     
   }
@@ -21,10 +19,8 @@ export default function Searchbox({onQuery}) {
         <input
           type="text"
           name="title"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
           className="w-full border border-gray-400 p-2 rounded-lg"
-          placeholder="Rechercher"
+          placeholder="Rechercher dans le titre de l'ouvrage"
         />
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-lg ml-2">
           Rechercher

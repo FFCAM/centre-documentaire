@@ -15,7 +15,7 @@ export default function Results({query}) {
         const { count }: { count: any } = await supabase.from('document').select('*', { count: 'exact', head: true });
         console.log(query);
         const { data, error }: { data: any, error: any } = query ?
-          (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').like('title', `%${query}%`)) :
+          (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').ilike('title', `%${query}%`)) :
           (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').limit(10));
         if (error) {
           setError(error);
