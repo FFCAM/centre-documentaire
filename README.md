@@ -12,7 +12,7 @@
   <h3 align="center">Catalogue du Centre National de Documentation FFCAM</h3>
 
   <p align="center">
-    Ce dépôt contient le code source de l'application web de consultation et de recherche dans le catalogue du <b>Centre National de Documentation</b> de la Fédération Française des Clubs Alpins et de Montagne (FFCAM).  <br />
+    Ce dépôt contient le code source de l'application web de consultation et de recherche du catalogue du <b>Centre National de Documentation</b> de la Fédération Française des Clubs Alpins et de Montagne (FFCAM).  <br />
 L'application est développée en utilisant Next.js et le backend est alimenté par Supabase.
     <br />
     <a href="https://centre-documentaire.vercel.app/"><strong>Visiter l'application »</strong></a>
