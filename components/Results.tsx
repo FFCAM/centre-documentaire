@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabaseclient';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Results() {
+export default function Results({query}) {
   const [data, setData] = useState<any[]>([]);
   const [count, setCount] = useState(null);
   const [error, setError] = useState<any>(null);
@@ -13,7 +13,10 @@ export default function Results() {
     const fetchData = async () => {
       try {
         const { count }: { count: any } = await supabase.from('document').select('*', { count: 'exact', head: true });
-        const { data, error }: { data: any, error: any } = await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').limit(10);
+        console.log(query);
+        const { data, error }: { data: any, error: any } = query ?
+          (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').like('title', `%${query}%`)) :
+          (await supabase.from('document_full').select('id, title, subtitle, authors, publishername, publication_date, keywords').limit(10));
         if (error) {
           setError(error);
           setLoading(false);
@@ -30,7 +33,7 @@ export default function Results() {
       }
     };
     fetchData();
-  }, []);
+  }, [query]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>An error occurred: {error.message}</div>;
@@ -45,13 +48,13 @@ export default function Results() {
                 <h2 className="card-title">{result.title}</h2>
                 {/* <p>{result.subtitle}</p> */}
                 {/* <p className="text-gray-700 text-sm mbdd-1">Année de publication: {result.publication_date}</p> */}
-                <p className="text-gray-700 text-sm mddb-1">Maison d&apos;édition: {result.publishername}</p>
-                <p className="text-gray-700 text-sm mddb-1">Auteurs: {result.authors && result.authors.map((item: any, i: any) => (
+                <p className="accent">Maison d&apos;édition: {result.publishername}</p>
+                <p className="accent">Auteurs: {result.authors && result.authors.map((item: any, i: any) => (
                   <>
                     {item}{i < result.authors.length - 1 ? " - " : ""}
                   </>
                 ))}</p>
-                <p className="text-gray-700 text-sm mb-3">Mots clés: {result.keywords && result.keywords.map((item: any, i: any) => (
+                <p className="accent">Mots clés: {result.keywords && result.keywords.map((item: any, i: any) => (
                   <>
                     #{item} {i < result.keywords.length - 1 ? "| " : ""}
                   </>

@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Searchbox from '../components/Searchbox';
 import Results from '../components/Results';
-import Link from 'next/link'
+import { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [query, setQuery] = useState("");
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
         
       <main className="py-8 px-4 container mx-auto">
-          <Searchbox />
+          <Searchbox onQuery={setQuery} />
           {/* <Image
             className={styles.logo}
             src="/images/logo.png"
@@ -28,7 +28,7 @@ export default function Home() {
             priority
           /> */}
 
-          <Results />
+          <Results query={query} />
           
       </main>
     </>
