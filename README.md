@@ -1,4 +1,4 @@
-[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=centre-documentaire)](https://centre-documentaire.vercel.app/)
+[![Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)](https://vercel/?utm_source=ffcam&utm_campaign=oss)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 
@@ -107,7 +107,3 @@ Un push sur la branche `main` déploie le code automatiquement sur [https://cent
 ## Licence
 
 Ce projet est sous licence [MIT](LICENSE).
-
----
-
-Nous espérons que cette application vous sera utile pour consulter et rechercher dans le catalogue du Centre National de Documentation de la FFCAM. Si vous avez des questions ou des problèmes, n'hésitez pas à nous contacter.
